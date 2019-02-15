@@ -10,4 +10,5 @@ object Mytest {
     haha.foreach(a=>println(a))
   }
 
+
 }
