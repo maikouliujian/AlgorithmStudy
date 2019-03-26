@@ -13,7 +13,7 @@ public class StringTest {
     public static int BruteForce(String source,String pattern){
         int sourcelen = source.length();
         int patternlen = pattern.length();
-        for (int i = 0; i < sourcelen; i++) {
+        for (int i = 0; i < sourcelen-patternlen+1; i++) {
             for (int j = 0; j <patternlen; j++) {
                 if (source.charAt(i +j) == pattern.charAt(j)){
                     if (j == patternlen-1){
