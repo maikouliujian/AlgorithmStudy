@@ -4,7 +4,6 @@ import org.apache.flink.runtime.query.QueryableStateUtils;
 
 import javax.swing.plaf.basic.BasicOptionPaneUI;
 import java.util.LinkedList;
-import java.util.Objects;
 import java.util.Queue;
 
 public class GraphTest {
@@ -12,7 +11,7 @@ public class GraphTest {
     public static void main(String[] args) {
         Graph graph = new Graph(8);
 
-        graph.addEdge(0, 1);
+        /*graph.addEdge(0, 1);
         graph.addEdge(0, 3);
         graph.addEdge(1, 2);
         graph.addEdge(1, 4);
@@ -21,11 +20,25 @@ public class GraphTest {
         graph.addEdge(4, 5);
         graph.addEdge(4, 6);
         graph.addEdge(5, 7);
-        graph.addEdge(6, 7);
+        graph.addEdge(6, 7);*/
 
-        graph.bfs(0,7);
+        /*graph.bfs(0,7);
         System.out.println("===");
-        graph.dfs(0,7);
+        graph.dfs(0,7);*/
+
+
+        graph.addSingleEdge(0, 1);
+        graph.addSingleEdge(0, 3);
+        graph.addSingleEdge(1, 2);
+        graph.addSingleEdge(1, 4);
+        graph.addSingleEdge(2, 5);
+        graph.addSingleEdge(3, 4);
+        graph.addSingleEdge(4, 5);
+        graph.addSingleEdge(4, 6);
+        graph.addSingleEdge(5, 7);
+        graph.addSingleEdge(6, 7);
+
+        graph.kahn();
 
 
 
@@ -57,6 +70,54 @@ public class GraphTest {
             adj[t].add(s);
         }
 
+
+        public void addSingleEdge(int s,int t){
+            adj[s].add(t);  //s --- > t
+        }
+
+        /***
+         * kahn拓扑排序算法
+         */
+        public void kahn(){
+            //记录各个顶点的入度数
+            int[] indgree = new int[v];
+            for (int i = 0; i < v; i++) {
+                for (int j = 0; j < adj[i].size(); j++) {
+                    int w = adj[i].get(j);
+                    indgree[w]++;
+                }
+            }
+
+            //定义入度为0的节点，进入队列
+            LinkedList<Integer> queue = new LinkedList<Integer>();
+            for (int i = 0; i < v; i++) {
+                if (indgree[i] == 0){
+                    queue.add(i);
+                }
+            }
+
+            //取出排序的结果
+            while (!queue.isEmpty()){
+                //移除节点
+                int i = queue.remove();
+
+                //最先入度为0的节点开始排序
+                System.out.print("---->" + i);
+
+                //移除节点后，该节点的next节点的入度都减1
+                for (int j = 0; j < adj[i].size(); ++j) {
+                    int k = adj[i].get(j);
+                    indgree[k]--;
+                    if (indgree[k] == 0) queue.add(k);
+                }
+            }
+        }
+
+        /***
+         * 广度优先
+         * @param s
+         * @param t
+         */
         public void bfs(int s,int t){
             if (s == t) return;
             //1、顶点是否被访问过，避免顶点的重复访问
@@ -100,6 +161,12 @@ public class GraphTest {
 
         private boolean found; //用于深度优先遍历，是否找见，用与跳出递归！！！
         //深度优先，回溯法，用递归
+
+        /***
+         * 深度优先
+         * @param s
+         * @param t
+         */
         public void dfs(int s,int t){
             if (s == t) return;
             found = false;
