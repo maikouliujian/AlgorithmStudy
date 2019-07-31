@@ -77,6 +77,17 @@ public class q2 {
 
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
             //反转链表
+            int val1 = 0;
+            int val2 = 0;
+            ListNode cur1 = l1;
+            ListNode cur2 = l2;
+            while (cur1!= null || cur2!=null){
+                val1 += cur1.val;
+                cur1 = cur1.next;
+
+                val2 += cur2.val;
+                cur2 = cur2.next;
+            }
 
 
             return null;
