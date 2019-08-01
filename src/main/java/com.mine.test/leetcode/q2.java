@@ -34,14 +34,21 @@ public class q2 {
 
     public static void main(String[] args) {
         Solution s= new Solution();
-        ListNode a = new ListNode(1);
-        ListNode b = new ListNode(2);
+        ListNode a = new ListNode(2);
+        ListNode b = new ListNode(4);
         ListNode c = new ListNode(3);
         a.next = b;
         b.next = c;
-        print(a);
+
+        ListNode d = new ListNode(5);
+        ListNode e = new ListNode(6);
+        ListNode f = new ListNode(4);
+        d.next = e;
+        e.next = f;
+        print(d);
         System.out.println();
-        print(s.reverse(a));
+        /*print(s.reverse(a));*/
+        print(s.addTwoNumbers(a,d));
 
 
 
@@ -76,21 +83,32 @@ public class q2 {
         }
 
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-            //反转链表
+            /*//反转链表
             int val1 = 0;
-            int val2 = 0;
-            ListNode cur1 = l1;
-            ListNode cur2 = l2;
+            int val2 = 0;*/
+            int sum = 0;
+            ListNode tmp = new ListNode(0);  //作为结果链表的根节点
+            ListNode cur1 = l1,cur2 = l2, t = tmp;
             while (cur1!= null || cur2!=null){
-                val1 += cur1.val;
-                cur1 = cur1.next;
+                sum /= 10;
+                if (cur1!=null){
+                    sum += cur1.val;
+                    cur1 = cur1.next;
+                }
+                if (cur2!=null){
+                    sum += cur2.val;
+                    cur2 = cur2.next;
+                }
+                t.next = new ListNode(sum %  10);
+                t = t.next;
+            }
 
-                val2 += cur2.val;
-                cur2 = cur2.next;
+            if (sum /10 != 0){
+                t.next = new ListNode(1);
             }
 
 
-            return null;
+            return tmp.next;
         }
     }
 
