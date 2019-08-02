@@ -48,7 +48,7 @@ public class q19 {
         c.next = d;
         d.next = e;
 
-        ListNode listNode = s.removeNthFromEnd(a, 3);
+        ListNode listNode = s.removeNthFromEnd(a, 2);
         print(listNode);
 
     }
@@ -63,7 +63,32 @@ public class q19 {
 
             if (head == null) return null;
             if (head.next == null) return null;
-            ListNode fast = head, slow = head/*,cur = head*/;
+            ListNode fast = head, slow = head;
+            //先让快指针跑n次
+            while (n-- > 0){
+                fast = fast.next;
+            }
+
+            if (fast != null){
+                while (fast.next!=null){
+                    fast = fast.next;
+                    slow = slow.next;
+                }
+                slow.next = slow.next.next;
+
+            }else {
+                head = head.next;
+            }
+
+            return head;
+
+
+
+
+
+
+
+            /*ListNode fast = head, slow = head*//*,cur = head*//*;
             int count = 0;
 
 
@@ -81,7 +106,7 @@ public class q19 {
                 slow.next = slow.next.next;
             }
 
-            return head;
+            return head;*/
         }
 
         //todo 此解法有问题，如果元素少于3个时；
