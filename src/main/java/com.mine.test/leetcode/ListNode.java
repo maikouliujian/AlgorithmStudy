@@ -5,8 +5,8 @@ package com.mine.test.leetcode;
  * @createDate 2019/8/2 11:50
  **/
 public class ListNode {
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
     ListNode(int x) {
         val = x;
     }

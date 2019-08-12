@@ -1,4 +1,4 @@
-package com.mine.test.leetcode;
+package com.mine.test.leetcode.tree;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,8 @@
 package com.mine.test.leetcode;
 
+import com.mine.test.leetcode.ListNode;
+import com.mine.test.leetcode.tree.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 

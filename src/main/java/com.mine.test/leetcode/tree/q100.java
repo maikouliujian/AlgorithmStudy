@@ -1,4 +1,6 @@
-package com.mine.test.leetcode;
+package com.mine.test.leetcode.tree;
+
+import com.mine.test.leetcode.PrintTool;
 
 /**
  * @author lj

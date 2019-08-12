@@ -1,7 +1,5 @@
 package com.mine.test.leetcode;
 
-import org.w3c.dom.NodeList;
-
 /**
  * @author lj
  * @createDate 2019/8/2 19:14\
