@@ -7,7 +7,7 @@ package com.mine.test.leetcode;
 public class ListNode {
     public int val;
     public ListNode next;
-    ListNode(int x) {
+    public ListNode(int x) {
         val = x;
     }
 }
