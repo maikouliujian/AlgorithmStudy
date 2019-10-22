@@ -5,7 +5,7 @@
 <modelVersion>4.0.0</modelVersion>
 
 <groupId>com.maikou.flink</groupId>
-<artifactId>flinktest</artifactId>
+<artifactId>AlgorithmStudy</artifactId>
 <version>1.0-SNAPSHOT</version>
     <name>flinkdemo</name>
     <!-- FIXME change it to the project's website -->
