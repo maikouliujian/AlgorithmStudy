@@ -58,6 +58,7 @@ public class q105 {
 
         /***
          * 思路：采用递归，前根序用来找根节点，中根序用来切分左右子树
+         * https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solution/qian-xu-bian-li-python-dai-ma-java-dai-ma-by-liwei/
          * @param preorder
          * @param inorder
          * @return
@@ -82,10 +83,12 @@ public class q105 {
             int leftLen = pos - inl;
             int rightLen = inr - pos;
             if (leftLen > 0){
+                //返回左子树的根节点
                 root.left = helper(preorder,prel+1,prer + leftLen,inorder,inl,pos -1);
             }
 
             if (rightLen > 0){
+                //返回右子树的根节点
                 root.right = helper(preorder,prer+ leftLen+1 ,prer,inorder,pos +1,inr);
             }
 
