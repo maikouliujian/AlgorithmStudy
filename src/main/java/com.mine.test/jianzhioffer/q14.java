@@ -1,4 +1,4 @@
-package com.mine.test.pointeroffer;
+package com.mine.test.jianzhioffer;
 
 /**
  * @author lj
