@@ -16,7 +16,7 @@ public class Shuxue {
     }
 
 
-    //q1
+    //q1_两数之和
     public static void get(long totalAmount, ArrayList<Long> result) {
         //利用递归处理
         if (totalAmount == 0) {

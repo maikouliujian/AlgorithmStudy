@@ -43,22 +43,48 @@ public class q3 {
 
     static class Solution {
         public int lengthOfLongestSubstring(String s) {
+//            int len;
+//            if (s == null || (len = s.length()) == 0) return 0;
+//            //char字符为128最大
+//            int[] hash = new int[128];
+//            int pre = 0,max = 0;
+//            for (int i = 0; i < len; i++) {
+//                char a = s.charAt(i);
+//                //如果字符已经 存在，则取出其位置
+//                if (hash[a] > pre){
+//                    pre = hash[a];
+//                }
+//                int result = i- pre + 1;
+//                hash[a] = i +1;
+//                if (result > max) max = result;
+//            }
+//            return max;
+
+
+
+
+            //思路：找到相同字符的位置求差，取最大值
             int len;
             if (s == null || (len = s.length()) == 0) return 0;
-            //char字符为128最大
-            int[] hash = new int[128];
-            int pre = 0,max = 0;
+            if (1 == len) return 1;
+            //初始化字符hash
+            int [] hash = new int[128];
+            int pre = 0; int max = 0;
             for (int i = 0; i < len; i++) {
-                char a = s.charAt(i);
-                //如果字符已经 存在，则取出其位置
-                if (hash[a] > pre){
-                    pre = hash[a];
+                char c = s.charAt(i);
+                if (hash[c] > pre){
+                    pre = hash[c];
                 }
-                int result = i- pre + 1;
-                hash[a] = i +1;
-                if (result > max) max = result;
+                int length = i - pre +1;
+                hash[c]= i +1;
+                if (length > max) max = length;
+
+
+
             }
+
             return max;
+
         }
     }
 

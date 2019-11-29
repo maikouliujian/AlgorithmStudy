@@ -82,33 +82,68 @@ public class q2 {
 
         }
 
+//        public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+//            /*//反转链表
+//            int val1 = 0;
+//            int val2 = 0;*/
+//            int sum = 0;
+//            ListNode tmp = new ListNode(0);  //作为结果链表的根节点
+//            ListNode cur1 = l1,cur2 = l2, t = tmp;
+//            while (cur1!= null || cur2!=null){
+//                sum /= 10;
+//                if (cur1!=null){
+//                    sum += cur1.val;
+//                    cur1 = cur1.next;
+//                }
+//                if (cur2!=null){
+//                    sum += cur2.val;
+//                    cur2 = cur2.next;
+//                }
+//                t.next = new ListNode(sum %  10);
+//                t = t.next;
+//            }
+//
+//            if (sum /10 != 0){
+//                t.next = new ListNode(1);
+//            }
+//
+//
+//            return tmp.next;
+//        }
+
+
+
+
+
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-            /*//反转链表
-            int val1 = 0;
-            int val2 = 0;*/
+            ListNode t1 = l1;
+            ListNode t2 = l2;
+            ListNode dummy = new ListNode(-1);
+            ListNode cur = dummy;
             int sum = 0;
-            ListNode tmp = new ListNode(0);  //作为结果链表的根节点
-            ListNode cur1 = l1,cur2 = l2, t = tmp;
-            while (cur1!= null || cur2!=null){
-                sum /= 10;
-                if (cur1!=null){
-                    sum += cur1.val;
-                    cur1 = cur1.next;
+
+            while (t1!=null || t2!=null){
+                //确定每一位的值
+                sum /=10;
+                if (t1!=null){
+                    sum+= t1.val;
+                    t1 = t1.next;
                 }
-                if (cur2!=null){
-                    sum += cur2.val;
-                    cur2 = cur2.next;
+                if (t2!=null){
+                    sum+= t2.val;
+                    t2 = t2.next;
                 }
-                t.next = new ListNode(sum %  10);
-                t = t.next;
+                cur.next = new ListNode(sum % 10);
+                cur =  cur.next;
+
             }
 
-            if (sum /10 != 0){
-                t.next = new ListNode(1);
+            //处理最高位
+            if (sum /10 == 1){
+                cur.next = new ListNode(1);
             }
 
-
-            return tmp.next;
+            return dummy.next;
         }
     }
 
