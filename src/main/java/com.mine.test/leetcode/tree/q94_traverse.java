@@ -194,7 +194,7 @@ public class q94_traverse {
 
 
 
-    //TODO :层级遍历
+    //TODO :层级遍历[很重要！！！]
     private static void levelRecHelper(TreeNode root, List<List<Integer>> result,int level) {
         if (root == null) return;
         //这一步很关键
@@ -250,6 +250,35 @@ public class q94_traverse {
         }
         return result;
     }
+
+
+    //层级遍历求数的高度
+    //  TODO 重点记忆！！！  可以使用递归
+    public static int levelHeight(TreeNode root){
+       Queue<TreeNode> queue = new LinkedList<>();
+       queue.add(root);
+       int height = 0;
+       int levelSize = 1; //每一层级节点的个数！！！
+       while (!queue.isEmpty()){
+           //每次遍历，层级节点个数减1
+//           int size = queue.size();
+           levelSize--;
+           TreeNode tmp = queue.poll();
+           if (tmp!=null){
+               if (tmp.left!=null) queue.add(tmp.left);
+               if (tmp.right!=null) queue.add(tmp.right);
+           }
+
+           if (levelSize == 0){
+               levelSize = queue.size();
+               height++;
+           }
+
+       }
+       return height;
+
+    }
+
 
 
 

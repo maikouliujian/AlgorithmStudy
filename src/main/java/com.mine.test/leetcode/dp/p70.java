@@ -87,4 +87,54 @@ public class p70 {
     }
 
 
+    static class Solution {
+        //解法1：使用递归
+        public int climbStairs1(int n) {
+            //递归终止条件：【纯递归会超时】
+            if (n <= 2) return n;
+            return climbStairs1(n-1) + climbStairs1(n-2);
+        }
+
+        /***
+         * 递归 + 记忆化
+         * @param n
+         * @return
+         */
+
+        public int climbStairs2(int n) {
+            //递归+ 记忆化
+            int[] mem = new int[n + 1];
+            return helper(mem,n);
+        }
+
+        private int helper(int[] mem, int n) {
+            if (n <= 2) return n;
+            if (mem[n]>0){
+                return mem[n];
+            }else {
+                mem[n] = helper(mem,n-1) + helper(mem,n-2);
+                return mem[n];
+            }
+
+        }
+
+        //TODO 动态规划：
+        public int climbStairs3(int n) {
+            //递归+ 记忆化
+            int[] mem = new int[n+3];
+            mem[0] = 0;
+            mem[1] = 1;
+            mem[2] = 2;
+
+            for (int i = 3; i <= n; i++) {
+               mem[i] = mem[i-1] + mem[i-2];
+            }
+
+            return mem[n];
+        }
+
+
+    }
+
+
 }

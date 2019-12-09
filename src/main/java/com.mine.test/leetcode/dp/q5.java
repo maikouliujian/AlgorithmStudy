@@ -1,4 +1,4 @@
-package com.mine.test.leetcode;
+package com.mine.test.leetcode.dp;
 
 /**
  * @author lj
@@ -86,10 +86,11 @@ public class q5 {
 
     class Solution {
         public String longestPalindrome(String s) {
+            int len = s.length();
+            if (len <= 1) return s;
             //动态规划
             //TODO 定义dp[i][j] 为从i到j的字串是否为回文子串
             char[] chars = s.toCharArray();
-            int len = chars.length;
             boolean[][] dp = new boolean[len+1][len+1];
             int start = 0;
             int end = 0;

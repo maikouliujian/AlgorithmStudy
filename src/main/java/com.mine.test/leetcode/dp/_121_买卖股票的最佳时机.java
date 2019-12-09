@@ -27,7 +27,7 @@ package com.mine.test.leetcode.dp;
 链接：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  **/
-public class p121 {
+public class _121_买卖股票的最佳时机 {
 
     public static void main(String[] args) {
         Solution s= new Solution();
@@ -78,12 +78,31 @@ public class p121 {
             }
             return maxSoFar;
         }
+
+
+        //TODO 求出最大值和最小值；
+        public int maxProfitReview(int[] prices) {
+            //维护两个变量，分别求出最大值和最小值
+            int minValue = Integer.MAX_VALUE;
+            int maxProfile = 0;
+
+            for (int i = 0; i <prices.length; i++) {
+                int tmp = prices[i];
+                if (tmp < minValue){
+                   minValue = tmp;
+                }else if (tmp - minValue> maxProfile){
+                    maxProfile = tmp- minValue;
+                }
+            }
+            return maxProfile;
+        }
     }
     /***
      * todo 子数组最大和问题
      *https://www.cnblogs.com/en-heng/p/3970231.html
      *
      */
+
 
 
 

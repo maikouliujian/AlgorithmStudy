@@ -3,6 +3,8 @@ package com.mine.test.leetcode.dp;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Math.min;
+
 /**
  * @author lj
  * @createDate 2019/8/20 11:00
@@ -60,6 +62,7 @@ public class p120 {
     public static class Solution {
         public int minimumTotal(List<List<Integer>> triangle) {
             int level = triangle.size();
+            //dp含义代表从最底层到i,j点的最短路径值
             int[][] dp = new int[level + 1][level + 1];
             int max = 0;
             //从最后一层开始倒推
@@ -67,12 +70,30 @@ public class p120 {
                 //取出每一层的列表
                 List<Integer> list = triangle.get(i);
                 for (int j = 0; j < list.size(); j++) {
-                    dp[i][j] = Math.min(dp[i + 1][j], dp[i + 1][j + 1]) + triangle.get(i).get(j);
+                    dp[i][j] = min(dp[i + 1][j], dp[i + 1][j + 1]) + triangle.get(i).get(j);
                 }
 
             }
             max = dp[0][0];
             return max;
+
+        }
+
+
+
+        public int minimumTotal1(List<List<Integer>> triangle) {
+            //采用dp解法，从底向上进行递推
+            int level = triangle.size();
+            //定义dp为从底层到i,j的最短路径和
+            int[][] dp = new int[level+1][level+1];
+            //从最底层开始遍历
+            for (int i = level-1; i >=0 ; i--) {
+                List<Integer> data = triangle.get(i);
+                for (int j = 0; j < data.size(); j++) {
+                    dp[i][j] = min(dp[i+1][j],dp[i+1][j+1]) + data.get(j);
+                }
+            }
+            return dp[0][0];
 
         }
     }
