@@ -37,9 +37,12 @@ public class q4 {
    //TODO 看这个https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-2/
     public static void main(String[] args) {
         Solution s = new Solution();
-        int [] nums1 = {-2};
-        int [] nums2 = {-5,4,5,9,100};
-        System.out.println(s.findMedianSortedArrays(nums1,nums2));
+//        int [] nums1 = {-2};
+//        int [] nums2 = {-5,4,5,9,100};
+
+        int [] nums1 = {1,3,5};
+        int [] nums2 = {2,4,6};
+        System.out.println(s.findMedianSortedArraysT(nums1,nums2));
 
 
     }
@@ -95,6 +98,34 @@ public class q4 {
                 return find_kth(a, a_begin + k / 2, b, b_begin, k - k / 2);
             //否则相反
             return find_kth(a, a_begin, b, b_begin + k / 2, k - k / 2);
+        }
+
+
+
+        //TODO 简单的解法：
+
+        //https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-2/
+
+        public double findMedianSortedArraysT(int[] A, int[] B) {
+            int m = A.length;
+            int n = B.length;
+            int len = m + n;
+            int left = -1, right = -1;
+            int aStart = 0, bStart = 0;
+            for (int i = 0; i <= len / 2; i++) {
+                left = right;
+                if (aStart < m && (bStart >= n || A[aStart] < B[bStart])) {
+                    right = A[aStart++];
+                } else {
+                    right = B[bStart++];
+                }
+
+                System.out.println("left" + left+ "; right" + right );
+            }
+            if ((len & 1) == 0)
+                return (left + right) / 2.0;
+            else
+                return right;
         }
 
     }
