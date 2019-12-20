@@ -20,6 +20,7 @@ public class PrintTool {
             cur = cur.next;
 
         }
+        System.out.println();
     }
 
     /***
