@@ -1,4 +1,4 @@
-package xiaomage._第二季_.sort;
+package xiaomage._第二季_.mysort.sort;
 
 import java.util.Arrays;
 
@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author lj
  * @createDate 2020/1/6 18:44
  **/
-public class Sort {
+public class MySort {
     public static void main(String[] args) {
         int[] src = {9,6,2,344,1,41,7};
         // bubblingSort(src);

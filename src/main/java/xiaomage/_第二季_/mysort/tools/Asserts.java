@@ -1,4 +1,4 @@
-package xiaomage._第二季_.tools;
+package xiaomage._第二季_.mysort.tools;
 
 public class Asserts {
 	public static void test(boolean value) {
