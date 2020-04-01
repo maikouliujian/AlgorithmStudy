@@ -1,8 +1,5 @@
 package com.mine.test.leetcode.tree;
 
-import com.google.common.collect.Lists;
-import com.mine.test.leetcode.PrintTool;
-import scala.Int;
 
 import java.util.ArrayList;
 import java.util.Collections;

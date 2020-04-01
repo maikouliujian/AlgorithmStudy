@@ -2,7 +2,6 @@ package com.mine.test.leetcode.tree;
 
 import com.mine.test.leetcode.ListNode;
 import com.mine.test.leetcode.PrintTool;
-import scala.tools.nsc.backend.icode.Members;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

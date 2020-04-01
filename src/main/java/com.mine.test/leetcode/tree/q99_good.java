@@ -55,7 +55,7 @@ import com.mine.test.leetcode.PrintTool;
  * 链接：https://leetcode-cn.com/problems/recover-binary-search-tree
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * */
-public class q99 {
+public class q99_good {
     public static void main(String[] args) {
         
         
@@ -85,8 +85,8 @@ public class q99 {
         public void recoverTree(TreeNode root) {
             inorder(root);
 
-            System.out.println(t1.val);
-            System.out.println(t2.val);
+//            System.out.println(t1.val);
+//            System.out.println(t2.val);
             int temp = t1.val;
             t1.val = t2.val;
             t2.val = temp;
