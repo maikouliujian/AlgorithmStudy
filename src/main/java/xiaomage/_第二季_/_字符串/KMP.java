@@ -1,5 +1,9 @@
 package xiaomage._第二季_._字符串;
 
+
+/***
+ * 判断一个串中是否含有另一个串！！！！
+ */
 public class KMP {
 
     public static void main(String[] args) {

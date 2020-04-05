@@ -64,18 +64,36 @@ public class q3 {
 
 
             //思路：找到相同字符的位置求差，取最大值
+            /***
+             * 当我们知道该字符集比较小的时侯，我们可以用一个整数数组作为直接访问表来替换 Map。
+
+             常用的表如下所示：
+
+             int [26] 用于字母 ‘a’ - ‘z’ 或 ‘A’ - ‘Z’
+             int [128] 用于ASCII码
+             int [256] 用于扩展ASCII码
+
+             作者：LeetCode
+             链接：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-by-leetcod/
+             来源：力扣（LeetCode）
+             著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+             */
             int len;
             if (s == null || (len = s.length()) == 0) return 0;
             if (1 == len) return 1;
             //初始化字符hash
             int [] hash = new int[128];
-            int pre = 0; int max = 0;
+            //pre以i-1位置字符结尾的最长不重复字符串的开始索引（最左索引）
+            int pre = 0;
+            int max = 0;
             for (int i = 0; i < len; i++) {
                 char c = s.charAt(i);
+                //hash[c] i位置字符上一次出现的位置
                 if (hash[c] > pre){
                     pre = hash[c];
                 }
                 int length = i - pre +1;
+                //存储这个字符出现的位置
                 hash[c]= i +1;
                 if (length > max) max = length;
 
@@ -87,5 +105,6 @@ public class q3 {
 
         }
     }
+
 
 }
