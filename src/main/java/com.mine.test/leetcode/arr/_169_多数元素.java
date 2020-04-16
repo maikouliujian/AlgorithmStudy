@@ -32,8 +32,11 @@ import java.util.function.BiConsumer;
 
 
 public class _169_多数元素 {
+    public static void main(String[] args) {
+        majorityElement(new int[]{1,2});
+    }
 
-    public int majorityElement(int[] nums) {
+    public static int majorityElement(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         Map<Integer,Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
