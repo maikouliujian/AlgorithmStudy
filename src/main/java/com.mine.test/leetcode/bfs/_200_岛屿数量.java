@@ -1,5 +1,8 @@
 package com.mine.test.leetcode.bfs;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  *
  * 给你一个由 '1'（陆地）和 '0'（水）组成的的二维网格，请你计算网格中岛屿的数量。
@@ -44,4 +47,116 @@ package com.mine.test.leetcode.bfs;
 
 //TODO :https://leetcode-cn.com/problems/number-of-islands/solution/dao-yu-lei-wen-ti-de-tong-yong-jie-fa-dfs-bian-li-/
 public class _200_岛屿数量 {
+
+
+    //TODO ：将二维矩阵看做图，进行图遍历===dfs、bfs
+    public int numIslands_dfs(char[][] grid) {
+        if (grid == null || grid.length == 0) {
+            return 0;
+        }
+        int m = grid.length;
+        int n = grid[0].length;
+
+        int count = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                //遇见1开始遍历
+                if (grid[i][j] == '1'){
+                    dfs(grid,i,j);
+                    count+=1;
+                }
+            }
+        }
+        return count;
+
+
+    }
+
+    //深度优先采用递归
+    private void dfs(char[][] grid, int i, int j) {
+        int m = grid.length;
+        int n = grid[0].length;
+        //递归终止条件
+        //isInIsland();
+        if (!(i>=0 &&i<m && j>=0 && j<n) || grid[i][j]!='1'){
+            return;
+        }
+        //如果遍历过，设置为已遍历2，避免重复遍历
+        grid[i][j]='2';
+        //上下左右四个方向遍历
+        dfs(grid,i-1,j);
+        dfs(grid,i+1,j);
+        dfs(grid,i,j-1);
+        dfs(grid,i,j+1);
+
+    }
+
+
+
+    //TODO ：将二维矩阵看做图，进行图遍历===dfs、bfs
+    public int numIslands_bfs(char[][] grid) {
+        if (grid == null || grid.length == 0) {
+            return 0;
+        }
+        int m = grid.length;
+        int n = grid[0].length;
+
+        int count = 0;
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                //遇见1开始遍历
+                if (grid[i][j] == '1'){
+                    count+=1;
+                    grid[i][j] = '2';
+                    //遍历所有1联通的节点
+                    //TODO i * m + j 只是为了方便用一个数存储 i 和 j
+                    queue.add( i * m + j);
+                    while (!queue.isEmpty()){
+                        Integer poll = queue.poll();
+                        int ii = poll / m;
+                        int jj = poll % m;
+
+                        //遍历上下左右
+                        if (ii-1>=0  && grid[ii-1][jj] =='1'){
+                            queue.add((ii-1)*m+jj);
+                            //已访问
+                            grid[ii-1][jj] ='2';
+
+                        }
+
+                        if (ii+1<m  && grid[ii+1][jj] =='1'){
+                            queue.add((ii+1)*m+jj);
+                            //已访问
+                            grid[ii+1][jj] ='2';
+
+                        }
+
+
+                        if (jj-1>=0  && grid[ii][jj-1] =='1'){
+                            queue.add(ii*m+jj-1);
+                            //已访问
+                            grid[ii][jj-1] = '2';
+
+                        }
+
+
+                        if (jj+1<n  && grid[ii][jj+1] == '1'){
+                            queue.add(ii*m+jj+1);
+                            //已访问
+                            grid[ii][jj+1] = '2';
+
+                        }
+
+
+                    }
+                }
+            }
+        }
+        return count;
+
+
+    }
+
+
 }
