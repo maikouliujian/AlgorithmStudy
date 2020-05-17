@@ -1,7 +1,6 @@
 package com.mine.test.java8.futuretest;
 
-import org.apache.commons.lang3.RandomUtils;
-import org.junit.Test;
+
 
 import java.util.concurrent.*;
 
@@ -27,7 +26,7 @@ public class MyTest {
     }
 
 
-    @Test
+    @org.junit.Test
     public void test() {
         CompletableFuture<String> futureA = CompletableFuture.
                 supplyAsync(() -> "执行结果:" + (100 / 0))
@@ -49,7 +48,7 @@ public class MyTest {
         System.out.println(futureA.join());//futureA result: 100
     }
 
-    @Test
+    @org.junit.Test
     public void test1() {
         CompletableFuture<String> futureA = CompletableFuture.
                 supplyAsync(() -> "执行结果:" + (100 / 0))
@@ -69,7 +68,7 @@ public class MyTest {
     }
 
 
-    @Test
+    @org.junit.Test
     public void test2() {
 
 
@@ -78,7 +77,8 @@ public class MyTest {
         long start = System.currentTimeMillis();
         CompletableFuture<String> futureA = CompletableFuture.supplyAsync(() -> {
             try {
-                Thread.sleep(1000 + RandomUtils.nextInt(0,1000));
+                //Thread.sleep(1000 + RandomUtils.nextInt(0,1000));
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -87,7 +87,8 @@ public class MyTest {
 
         CompletableFuture<String> futureB = CompletableFuture.supplyAsync(() -> {
             try {
-                Thread.sleep(1000 + RandomUtils.nextInt(0,1000));
+                //Thread.sleep(1000 + RandomUtils.nextInt(0,1000));
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -96,7 +97,8 @@ public class MyTest {
 
         CompletableFuture<String> futureC = CompletableFuture.supplyAsync(() -> {
             try {
-                Thread.sleep(1000 + RandomUtils.nextInt(0,1000));
+               // Thread.sleep(1000 + RandomUtils.nextInt(0,1000));
+                Thread.sleep(1000 );
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -105,7 +107,8 @@ public class MyTest {
 
         CompletableFuture<String> futureD = CompletableFuture.supplyAsync(() -> {
             try {
-                Thread.sleep(1000 + RandomUtils.nextInt(0,1000));
+                //Thread.sleep(1000 + RandomUtils.nextInt(0,1000));
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

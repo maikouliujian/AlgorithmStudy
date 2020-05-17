@@ -1,5 +1,7 @@
 package com.mine.test.java8;
 
+import com.mine.test.java8.Discount;
+
 import java.util.Random;
 
 public class Shop {
