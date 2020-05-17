@@ -1,5 +1,7 @@
 package xiaomage._第三季_.shuati;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 public class _42_接雨水 {
 
 
