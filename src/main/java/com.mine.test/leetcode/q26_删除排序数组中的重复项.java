@@ -68,6 +68,22 @@ public class q26_删除排序数组中的重复项 {
             }
             return i+1;
         }
+
+
+//        public int[] removeDuplicates(int[] nums) {
+//            if (nums.length == 0) return new int[]{};
+//            //采用双指针进行
+//            int i = 0;
+//            for (int j = 1; j < nums.length; j++) {
+//                //相等就跳过
+//                if (nums[i] != nums[j]){
+//                    i++;
+//                    nums[i] = nums[j];
+//
+//                }
+//            }
+//            return i+1;
+//        }
     }
 
 }
