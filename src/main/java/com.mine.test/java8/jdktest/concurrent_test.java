@@ -25,14 +25,14 @@ public class concurrent_test {
 
         //二者hashcode相等！！！
         //TODO hashcode相等才会出现这样的问题
-        System.out.println("AaAa".hashCode());
-        System.out.println("BBBB".hashCode());
+//        System.out.println("AaAa".hashCode());
+//        System.out.println("BBBB".hashCode());
 
         Map<String, String> map = new ConcurrentHashMap<>();
         map.computeIfAbsent("AaAa", new Function<String, String>() {
             @Override
             public String apply(String s) {
-                System.out.println("aaaaa");
+                //System.out.println("aaaaa");
                 return map.computeIfAbsent("BBBB", key2 -> "value");
             }
         });

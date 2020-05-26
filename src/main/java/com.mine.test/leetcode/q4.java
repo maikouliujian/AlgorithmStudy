@@ -110,8 +110,9 @@ public class q4 {
             int m = A.length;
             int n = B.length;
             int len = m + n;
-            int left = -1, right = -1;
-            int aStart = 0, bStart = 0;
+            int left = -1, right = -1;  //值
+            int aStart = 0, bStart = 0; //索引
+
             for (int i = 0; i <= len / 2; i++) {
                 left = right;
                 if (aStart < m && (bStart >= n || A[aStart] < B[bStart])) {
