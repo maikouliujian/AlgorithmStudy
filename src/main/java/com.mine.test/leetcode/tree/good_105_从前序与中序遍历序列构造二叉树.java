@@ -32,7 +32,7 @@ import java.util.Queue;
  * 链接：https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * */
-public class q105 {
+public class good_105_从前序与中序遍历序列构造二叉树 {
     public static void main(String[] args) {
         
         
@@ -80,16 +80,18 @@ public class q105 {
 
             //分别去找root的 左右子树的根节点
             //求出左右子树的长度
+            //TODO 根据中序求长度
             int leftLen = pos - inl;
             int rightLen = inr - pos;
+
             if (leftLen > 0){
                 //返回左子树的根节点
-                root.left = helper(preorder,prel+1,prer + leftLen,inorder,inl,pos -1);
+                root.left = helper(preorder,prel+1,prel + leftLen,inorder,inl,pos -1);
             }
 
             if (rightLen > 0){
                 //返回右子树的根节点
-                root.right = helper(preorder,prer+ leftLen+1 ,prer,inorder,pos +1,inr);
+                root.right = helper(preorder,prel+ leftLen+1 ,prer,inorder,pos +1,inr);
             }
 
 
