@@ -29,7 +29,7 @@ public class good_106_从中序与后序遍历序列构造二叉树 {
                 root.left = helper(postorder,posl,posl+leftLen-1,inorder,inl,post-1);
             }
             if (rightLen > 0){
-                root.right  = helper(postorder,posl+leftLen,posl+leftLen+rightLen-1,inorder,post+1,inr);
+                root.right  = helper(postorder,posl+leftLen,posr-1,inorder,post+1,inr);
             }
             return root;
 
