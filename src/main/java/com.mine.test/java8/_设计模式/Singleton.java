@@ -1,6 +1,5 @@
 package com.mine.test.java8._设计模式;
 
-import com.sun.org.apache.regexp.internal.RE;
 
 /**
  * @author lj

@@ -1,9 +1,6 @@
 package com.mine.test.leetcode.stack;
 
-import com.sun.org.apache.regexp.internal.RE;
-import org.omg.PortableInterceptor.INACTIVE;
 
-import java.util.Stack;
 
 /**
  * @author lj
