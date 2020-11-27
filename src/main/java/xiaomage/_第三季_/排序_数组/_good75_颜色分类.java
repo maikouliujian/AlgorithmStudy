@@ -47,6 +47,7 @@ public class _good75_颜色分类 {
             }else if (value == 1){
                 cur++;
             }else {
+                //todo 这里cur不能--，是因为如果cur是2，right是1，这么一交换，并且cur--的话，那么1就永远在左边了！！！
                 swap(right--,cur,nums);
             }
         }
