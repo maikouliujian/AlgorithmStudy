@@ -27,7 +27,7 @@ import java.util.*;
 链接：https://leetcode-cn.com/problems/binary-tree-inorder-traversal
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  **/
-public class good_q94_traverse_二叉树的遍历good {
+public class good_q94_二叉树的遍历good {
 
     public static void main(String[] args) {
 
@@ -235,6 +235,7 @@ public class good_q94_traverse_二叉树的遍历good {
         while (!queue.isEmpty()){
             //从这开始控制层级遍历
             int len = queue.size();
+            ////这一步必须取出来，不然下面add后，size发生了变化！！！
             List<Integer> level = new ArrayList<Integer>();
             for (int i = 0; i < len; i++) {
                 TreeNode tmp = queue.poll();
