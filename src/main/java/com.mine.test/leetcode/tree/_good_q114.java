@@ -41,7 +41,7 @@ import java.util.Stack;
  * 链接：https://leetcode-cn.com/problems/unique-binary-search-trees-ii
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  **/
-public class q114 {
+public class _good_q114 {
 
     public static void main(String[] args) {
         Solution s = new Solution();
@@ -53,6 +53,7 @@ public class q114 {
         public void flatten(TreeNode root) {
             if(root == null) return;
             helper(root);
+
         }
 
         //将以root为根的树，展开为链表,并返回头节点root
@@ -80,6 +81,32 @@ public class q114 {
                 cur.right = temp;
             }
             return root;
+        }
+
+
+        //方法定义：将以root为根节点的树压平
+        public void flatten1(TreeNode root) {
+            if(root == null) return;
+            //压平左树
+            flatten1(root.left);
+            //压平右树
+            flatten1(root.right);
+            //找到左右子树的引用
+            TreeNode left = root.left;
+            TreeNode right = root.right;
+            root.right = left;
+            root.left = null;
+            //连接right
+            TreeNode p = root;
+            while (p.right!=null){
+                p = p.right;
+            }
+            p.right = right;
+
+
+
+
+
         }
     }
 }
