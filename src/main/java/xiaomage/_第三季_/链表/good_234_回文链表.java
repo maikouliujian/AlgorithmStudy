@@ -1,6 +1,6 @@
 package xiaomage._第三季_.链表;
 
-import com.mine.test.leetcode.ListNode;
+import suanfa.leetcode.ListNode;
 
 public class good_234_回文链表 {
     //回文链表;思路：双指针，数组双指针方便，链表不行,所以需要翻转部分链表

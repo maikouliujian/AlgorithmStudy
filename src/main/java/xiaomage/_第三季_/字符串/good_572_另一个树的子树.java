@@ -1,8 +1,6 @@
 package xiaomage._第三季_.字符串;
 
-import com.mine.test.leetcode.tree.TreeNode;
-import xiaomage.printer.BinaryTreeInfo;
-import xiaomage.printer.BinaryTrees;
+import suanfa.leetcode.tree.TreeNode;
 
 public class good_572_另一个树的子树 {
 

@@ -1,8 +1,6 @@
 package xiaomage._第三季_.链表;
 
-import com.mine.test.leetcode.ListNode;
-
-import java.util.List;
+import suanfa.leetcode.ListNode;
 
 public class good_203_移除链表元素 {
 

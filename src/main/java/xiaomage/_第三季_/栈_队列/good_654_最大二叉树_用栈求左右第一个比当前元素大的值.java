@@ -1,6 +1,6 @@
 package xiaomage._第三季_.栈_队列;
 
-import com.mine.test.leetcode.tree.TreeNode;
+import suanfa.leetcode.tree.TreeNode;
 
 import java.util.Arrays;
 import java.util.Stack;

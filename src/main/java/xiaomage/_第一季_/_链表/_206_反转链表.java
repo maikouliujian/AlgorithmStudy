@@ -1,7 +1,7 @@
 package xiaomage._第一季_._链表;
 
 
-import com.mine.test.leetcode.ListNode;
+import suanfa.leetcode.ListNode;
 
 /***
  * 反转一个单链表。

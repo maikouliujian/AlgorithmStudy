@@ -1,8 +1,6 @@
 package xiaomage._第一季_._栈;
 
 
-import com.mine.test.leetcode.ListNode;
-
 /***
  给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
 

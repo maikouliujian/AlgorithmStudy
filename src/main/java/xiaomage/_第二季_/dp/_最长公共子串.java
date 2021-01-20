@@ -19,6 +19,7 @@ public class _最长公共子串 {
 
     static class Solution {
         //dp[i][j]:text1的前i个元素和text2的前j个元素的最长公共子串！！！
+        //dp[i][j]:以text1【i-1】和text2【j-1】结尾的最长公共子串；
         public int longestCommonSubsequence(String text1, String text2) {
             if (text1 == null || text2 == null || text1.length() == 0 || text2.length() == 0) return 0;
             char[] nums1 = text1.toCharArray();

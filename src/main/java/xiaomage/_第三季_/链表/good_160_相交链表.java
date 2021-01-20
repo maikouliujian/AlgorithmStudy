@@ -1,6 +1,6 @@
 package xiaomage._第三季_.链表;
 
-import com.mine.test.leetcode.ListNode;
+import suanfa.leetcode.ListNode;
 
 public class good_160_相交链表 {
 

@@ -1,6 +1,6 @@
 package xiaomage._第三季_.二叉树;
 
-import com.mine.test.leetcode.tree.TreeNode;
+import suanfa.leetcode.tree.TreeNode;
 
 public class _99_恢复二叉搜索树 {
 

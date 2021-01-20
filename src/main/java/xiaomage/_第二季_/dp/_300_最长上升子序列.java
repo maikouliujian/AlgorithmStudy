@@ -84,6 +84,7 @@ public class _300_最长上升子序列 {
                     //取出小于i的dp的最大值
 //                    if (dp[j] > tmpMax) tmpMax = dp[j];
 //                    dp[i] = tmpMax + 1;
+                    //dp[i]有多种情况，取最大，+1是指加上当前元素
                     dp[i] = Math.max(dp[j]+1,dp[i]);
                 }
                 if (dp[i] > max) max=dp[i];

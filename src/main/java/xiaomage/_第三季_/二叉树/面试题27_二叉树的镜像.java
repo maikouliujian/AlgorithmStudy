@@ -1,6 +1,6 @@
 package xiaomage._第三季_.二叉树;
 
-import com.mine.test.leetcode.tree.TreeNode;
+import suanfa.leetcode.tree.TreeNode;
 
 public class 面试题27_二叉树的镜像 {
 
