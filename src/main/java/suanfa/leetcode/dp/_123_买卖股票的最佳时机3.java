@@ -49,7 +49,7 @@ public class _123_买卖股票的最佳时机3 {
             if (prices.length <= 1) return 0;
 
             //TODO dp的定义：
-            // d[i][j][k]    i代表到第i天的最大利润；j代表交易的次数；k代表是否持有股票
+            // d[i][j][k]    i代表到第i天的最大利润；j代表交易的次数；k代表是否持有股票,0不持有股票，1持有股票
             int[][][] d = new int[prices.length][3][2];
             for (int i=0; i<prices.length; ++i) {
                 d[i][0][0] = 0;
