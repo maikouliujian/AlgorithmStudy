@@ -4,6 +4,7 @@ import suanfa.leetcode.tree.TreeNode;
 
 public class good_572_另一个树的子树 {
 
+
     /***
      * 思路1：将二叉树进行字符串序列化， 空节点用#代替，节点之间用！分隔
      * @param s

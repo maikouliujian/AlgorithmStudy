@@ -21,7 +21,7 @@ package suanfa.leetcode;
  * 链接：https://leetcode-cn.com/problems/longest-palindromic-substring
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  **/
-public class q5 {
+public class q5最长的回文子串 {
 
     //TODO 动态规划问题主要是找=============动态转移方程===========
     //后面的结果需要依赖前面的结果，则可以使用动态规划

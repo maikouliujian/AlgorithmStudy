@@ -14,7 +14,8 @@ public class Sort {
         Solution s = new Solution();
         int[] arr = {9,1,2,5,6,3,8,10,4};
         System.out.println(Arrays.toString(arr));
-        //s.quickSort(arr,0,arr.length-1);
+        s.quickSort(arr,0,arr.length-1);
+        System.out.println(Arrays.toString(arr));
         //bubblingSort(arr);
         //insertSort(arr);
         s.mergeSort(arr,0,arr.length-1);
@@ -109,7 +110,7 @@ public class Sort {
             quickSort(arr,par+1,end);
 
         }
-
+        //start 和 end都是index
         private int partition(int start, int end, int[] arr)
         {
             //比较值
