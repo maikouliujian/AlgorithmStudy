@@ -1,0 +1,107 @@
+一、id sex chinese_s math_s
+0 0 70 50
+1 0 90 70
+2 1 80 90
+1、男女各自语文第一名（0:男，1:女）
+2、男生成绩语文大于80，女生数学成绩大于70
+
+create table if not exists student(
+id int,
+sex string,
+chinese_s double,
+math_s double
+)
+row format delimited fields terminated by ' '
+lines terminated by '\n'
+stored as textfile
+;
+
+load data local inpath '/root/hivedata/student.txt' into table student;
+
+1.
+select
+id,
+sex,
+chinese_s
+from
+(
+select
+id,
+sex,
+chinese_s,
+row_number() over(partiton by sex order by chinese_s desc) ord
+from
+student) tmp
+where ord=1
+;
+
+select
+*
+from
+student
+where (sex='0' and chinese_s>80) or (sex='1' and math_s>70)
+;
+
+
+二、每个用户连续登陆的最大天数？
+uid,date
+1,2019-08-01
+1,2019-08-02
+1,2019-08-03
+2,2019-08-01
+2,2019-08-02
+3,2019-08-01
+3,2019-08-03
+4,2019-07-28
+4,2019-07-29
+4,2019-08-01
+4,2019-08-02
+4,2019-08-03
+结果如下
+uid cnt_days
+1 3
+2 2
+3 1
+4 3
+
+create table if not exists temp.test(
+uid string,
+date1 string
+)
+row format delimited fields terminated by ','
+lines terminated by '\n'
+stored as textfile
+;
+
+load data local inpath '/home/liujian1/data3.txt' into table temp.test;
+load data local inpath '/home/liujian1/data3.txt' overwrite into table temp.test;
+
+with t as (
+select
+uid,tmp,count(1) as days
+from
+(select
+      uid,date,
+      date_sub(date1,row_number() over(partition by uid order by date1) ) as tmp
+      from
+temp.test) t group by uid,tmp)
+select
+uid,max(days) as days
+from t group by uid;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
