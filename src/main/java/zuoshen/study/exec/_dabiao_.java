@@ -1,4 +1,4 @@
-package zuoshen;
+package zuoshen.study.exec;
 
 /**
  * todo 打表法：枚举找规律

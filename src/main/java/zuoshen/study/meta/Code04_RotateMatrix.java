@@ -1,4 +1,4 @@
-package zuoshen.meta;
+package zuoshen.study.meta;
 
 /**
  * @author : 刘剑

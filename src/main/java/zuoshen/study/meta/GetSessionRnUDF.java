@@ -1,4 +1,4 @@
-package zuoshen.meta;
+package zuoshen.study.meta;
 
 import java.util.ArrayList;
 import java.util.Collections;
