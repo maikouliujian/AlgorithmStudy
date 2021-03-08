@@ -3,6 +3,9 @@ package suanfa.leetcode.link;
 import suanfa.leetcode.ListNode;
 import suanfa.leetcode.PrintTool;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 /**
  * @author lj
  * @createDate 2019/10/30 14:30
@@ -23,7 +26,7 @@ import suanfa.leetcode.PrintTool;
 链接：https://leetcode-cn.com/problems/merge-k-sorted-lists
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  **/
-public class q23 {
+public class good_q23_合并K个升序链表 {
 
     public static void main(String[] args) {
         Solution s = new Solution();
@@ -78,7 +81,9 @@ public class q23 {
         /***
          * 思路：
          * TODO :采用分而治之
-         * TODO :分治法：
+         * TODO :分治法：时间复杂度为：nlog(k)
+         * todo 时间复杂度分析：两两归并，每个结点会被归并 log(k) 次，所以总的时间复杂度为 O(nlog(k))。 n为总节点数
+         *
          *
          *  TODO :   分解原问题为若干个子问题，这些子问题是原问题的规模较小的实例；
          *           递归求解这些子问题，如果规模足够小，则直接求解；
@@ -164,5 +169,37 @@ public class q23 {
             return headPointer.next;
 
         }*/
+
+        //todo 采用堆进行排序
+        public ListNode mergeKLists1(ListNode[] lists) {
+            if (lists == null)return null;
+            if (lists.length == 1) return lists[0];
+            //堆===优先队列
+            PriorityQueue<ListNode> queue = new PriorityQueue<>(new Comparator<ListNode>() {
+                @Override
+                public int compare(ListNode o1, ListNode o2) {
+                    return o1.val  - o2.val;
+                }
+            });
+            for (ListNode list : lists) {
+                //注意
+                if (list!=null)
+                queue.add(list);
+            }
+
+            ListNode dummy = new ListNode(-1);
+            ListNode tail = dummy;
+            while (!queue.isEmpty()){
+                tail.next = queue.poll();
+                tail = tail.next;
+                //动态向堆中添加元素
+                if (tail.next!=null)queue.add(tail.next);
+                tail.next = null;//断开无用链接
+            }
+            return dummy.next;
+        }
     }
+
+
+
 }
