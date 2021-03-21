@@ -55,7 +55,7 @@
 
         <!--&lt;!&ndash;scala待编译的文件目录&ndash;&gt;-->
         <!--<sourceDirectory>src/main/scala</sourceDirectory>-->
-        <!--<testSourceDirectory>src/test/scala</testSourceDirectory>-->
+        <!--<testSourceDirectory>src/lc.sql/scala</testSourceDirectory>-->
 
         <!--&lt;!&ndash;包名&ndash;&gt;-->
         <!--<finalName>flink-demo_${project.version}_${maven.build.timestamp}</finalName>-->

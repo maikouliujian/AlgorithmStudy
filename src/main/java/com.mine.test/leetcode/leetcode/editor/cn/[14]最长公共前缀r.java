@@ -31,6 +31,7 @@ package com.mine.test.leetcode.leetcode.editor.cn;//编写一个函数来查找�
 // 👍 1513 👎 0
 
 
+import sun.nio.cs.ext.MacHebrew;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution14 {
@@ -55,6 +56,28 @@ class Solution14 {
     public static void main(String[] args) {
         String A = longestCommonPrefix(new String[]{"flower","flower","flower","flower"});
         System.out.println(A);
+    }
+
+    //todo 把第一个拎出来，用它在其他每个串进行对比，选择index最小的；
+    public static String longestCommonPrefix1(String[] strs) {
+        if (strs == null || strs.length == 0 )return"";
+        if (strs.length == 1)return strs[0];
+        char[] chars = strs[0].toCharArray();
+        int min = Integer.MAX_VALUE;
+        for (int i = 1; i < strs.length; i++) {
+            char[] chars1 = strs[i].toCharArray();
+            int index = 0;
+            //todo 不能越界
+            while (index < chars.length && index < chars1.length){
+                if (chars[index] != chars1[index]){
+                    break;
+                }
+                index++;
+            }
+            min = Math.min(min,index);
+            if (min == 0)return "";
+        }
+        return strs[0].substring(0,min);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

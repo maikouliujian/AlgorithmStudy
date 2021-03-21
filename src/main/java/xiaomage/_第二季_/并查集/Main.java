@@ -33,9 +33,9 @@ public class Main {
 //		
 //		uf.union(stu1, stu4);
 //		
-//		Asserts.test(uf.isSame(stu2, stu3));
-//		Asserts.test(uf.isSame(stu3, stu4));
-//		Asserts.test(!uf.isSame(stu1, stu3));
+//		Asserts.lc.sql(uf.isSame(stu2, stu3));
+//		Asserts.lc.sql(uf.isSame(stu3, stu4));
+//		Asserts.lc.sql(!uf.isSame(stu1, stu3));
 	}
 	
 	static void testTime(GenericUnionFind<Integer> uf) {

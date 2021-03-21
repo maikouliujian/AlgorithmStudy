@@ -1,4 +1,4 @@
-package zuoshen.classics;
+package zuoshen.经典;
 
 import java.util.Arrays;
 
@@ -134,7 +134,7 @@ public class _1绳子覆盖 {
         return max;
     }
 
-    // for test
+    // for lc.sql
 
     public static int test(int[] arr, int L) {
         int max = 0;
