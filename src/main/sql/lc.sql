@@ -304,8 +304,28 @@ lateral view posexplode(split(score,',')) t2 as pos,score1
 where t1.pos = t2.pos;
 
 
+create table if not exists temp.test(
+oid string,
+uid string,
+d string,
+amt int
+)
+row format
+delimited fields terminated by ','
+lines terminated by '\n'
+stored as textfile
+;
 
+-- 求每个用户top3交易金额的订单
 
+select
+uid,
+oid
+from (select
+oid,
+uid,
+row_number() over(partition by uid order by amount desc ) rk
+from temp.test) t where rk <= 3;
 
 
 

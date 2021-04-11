@@ -37,7 +37,7 @@ public class q69_x的平方根 {
     static class Solution {
         public static void main(String[] args) {
 
-            System.out.println(mySqrt(4));
+            System.out.println(mySqrt2(8));
         }
 
         public static int mySqrt(int x) {
@@ -70,6 +70,26 @@ public class q69_x的平方根 {
 
         }
 
+
+        public static int mySqrt2(int x) {
+            //二分法求平方根
+            long low = 0;
+            long high  = x;
+            long middle = -1;
+            while(high - low > 0){
+                middle = low + (high - low) >> 1;
+                if(x /middle > middle){
+                    low = middle+1;
+                }else if(x /middle < middle){
+                    high = middle -1;
+                }else{
+                    return (int)middle;
+                }
+
+            }
+            return (int)middle;
+
+        }
 
         public static double mySqrtA(int x) {
             //使用二分法
