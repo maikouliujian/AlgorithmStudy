@@ -48,16 +48,31 @@ package zuoshen.topinterview.leetcode.editor.cn;//整数数组 nums 按升序排
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    /***
-     * 将数组一分为二，其中一定有一个是有序的，另一个可能是有序，也能是部分有序。
-     * 此时有序部分用二分法查找。无序部分再一分为二，其中一个一定有序，另一个可能有序，可能无序。就这样循环.
-     * @param nums
-     * @param target
-     * @return
-     */
+class Solution33 {
     public int search(int[] nums, int target) {
-//[4,5,-2,-1,0,1,2]
+
+        int l = 0;
+        int r = nums.length -1;
+        while (l <= r){
+            int m = l +((r -l)>>1);
+            if (target == nums[m]) return m;
+            //判断有序的一边，要么左侧有序，要么右侧有序
+            if (nums[l]<=nums[m]){//左侧有序
+                if (nums[l] <= target && target <= nums[m]){
+                    r = m-1;
+                }else {
+                    l = m+1;
+                }
+            }else {//右侧有序
+                if (nums[m] <= target && target <= nums[r]){
+                    l = m+1;
+                }else {
+                    r = m-1;
+                }
+            }
+        }
+        return -1;
+
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
